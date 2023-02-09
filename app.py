@@ -8,7 +8,7 @@ app = Flask(__name__)
 def get_item():
     result = run_statement("CALL get_items")
     if (type(result) == list):
-        result_json = json.dumps(result)
+        result_json = json.dumps(result, default=str)
         return result_json    
     else:
         return "Sorry, something went wrong!"
@@ -50,7 +50,7 @@ def delete_item():
 def get_employee():
     result = run_statement("CALL get_employee")
     if (type(result) == list):
-        result_json = json.dumps(result)
+        result_json = json.dumps(result, default=str)
         return result_json
     else:
         return "Sorry, something went wrong!"
